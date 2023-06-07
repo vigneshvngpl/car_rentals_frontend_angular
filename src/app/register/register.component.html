@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-white">
+    <div class="container-fluid px-5">
+        <a class="navbar-brand" href=""><img src="https://i.postimg.cc/d0kZpWGn/logo-transparent-png-1.png" alt=""
+                style=" height: 70px;"></a>
+        <button class="navbar-toggler bg-black " type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon "></span></button>
+        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 navi ">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Vehicle Model</a></li>
+                <li class="nav-item"><a class="nav-link" href="pricing.html">Testmonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">Our Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">contact</a></li>
+                
+               
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- register form -->
+
+<div class="w-75  mx-auto  row "
+    style="height: 500px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 5%;">
+    <div class="col-lg-6 col-md-12 col-sm-12 mb-2  ">
+        
+        <div class="" style="display: flex;justify-content: center; align-items: center; ">
+
+            <div class="w-75 mt-3">
+                <h5 class="mt-2 ms-4">Register here</h5>
+                <form action="" [formGroup]="registerForm" (ngSubmit)="register()"  >
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input formControlName="email"  id="mail" name="mail" type="text" required>
+
+                        <div class="underline"></div>
+                        <label>Email ID</label>
+                        <div  *ngIf="(this.registerForm.get('email')?.errors)&&(this.registerForm.get('email')?.touched)"><p>Email not valid</p></div>
+                        
+                    </div>
+                    <div class="input-data mt-5">
+                        <input formControlName="nme"  id="nam" name="nam" type="text" required>
+                        <div class="underline"></div>
+                        <label>Name</label>
+                        <div *ngIf="(this.registerForm.get('nme')?.errors)&&(this.registerForm.get('nme')?.touched)"><p>Name doesn't contain characters</p></div>
+                        
+                    </div>
+
+
+                
+                
+                    <div class="input-data mt-5">
+                        <input formControlName="phone"  name="phn" type="text" id="phn" required>
+                        <div class="underline"></div>
+                        <label>Phone</label>
+                        <div  *ngIf="(this.registerForm.get('phone')?.errors)&&(this.registerForm.get('phone')?.touched)"><p>enter valid phone number</p></div>
+                        
+                    </div>
+                    <div class="input-data mt-5">
+                        <input formControlName="psw"  name="password" type="password" id="password" required>
+                        <div class="underline"></div>
+                        <label>Password</label>
+                        <div  *ngIf="(this.registerForm.get('psw')?.errors)&&(this.registerForm.get('psw')?.touched)"><p>Enter valid password</p></div>
+                        
+                    </div>
+
+                    <div class="input-data mt-5">
+                        <input formControlName="cpsw"  name="password1" type="password" id="password1" required>
+                        <div class="underline"></div>
+                        <label>Confirm Password</label>
+                        <div  *ngIf="pswCheck"><p>Password doesn't match</p></div>
+                        
+                    </div>
+                </div>
+
+               
+                
+                <button class="btn" type="submit"  style="background-color: black; margin-left: 75%; color: white;">register</button>
+            </form >
+
+            </div >
+
+
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 div2" >
+
+    </div>
+</div>

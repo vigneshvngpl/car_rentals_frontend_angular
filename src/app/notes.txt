@@ -1,0 +1,17 @@
+
+vehicle data base structure
+----------------------------
+{
+  "carnme":"",
+  "model":"",
+  "price":,
+  "carimge":"",
+  "fuel":"",
+  "transmission":"",
+  "capacity":,
+  "mileage":,
+  "condition":"",
+  "booking":[]
+  
+}
+
