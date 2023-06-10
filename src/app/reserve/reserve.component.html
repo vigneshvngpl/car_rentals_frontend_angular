@@ -13,50 +13,62 @@
                 <li class="nav-item"><a class="nav-link" href="pricing.html">Testmonials</a></li>
                 <li class="nav-item"><a class="nav-link" href="faq.html">Our Team</a></li>
                 <li class="nav-item"><a class="nav-link" href="faq.html">contact</a></li>
-
-
-
-
-
-
             </ul>
         </div>
     </div>
 </nav>
 
-<div class="row  mt-5  mx-auto" style="width: 85%;">
-    
-    <div class="col-lg-6 col-md-12   mt-2 ">
-        <h1>Car Name</h1>
-        <h4>details</h4>
+<div class="row 
+  mx-auto" style="width: 85%;">
 
-        <form action="" class="mt-3 mx-auto " (ngSubmit)=" transaction()">
+    <div class="col-lg-6 col-md-12   ">
+
+        <h1 class="text-center mt-5">Booking</h1>
+        <form action="" class="mt-5 mx-auto " [formGroup]="reserveForm" (ngSubmit)="  toreserve()">
             <div class="row mx-auto " style="display: flex; justify-content: space-evenly;">
                 <div class="form-floating mb-3  col-lg-5">
-                    <input type="date" class="form-control " id="floatingInput" placeholder="name@example.com">
+                    <input type="date" formControlName="frmdate" class="form-control " id="floatingInput"
+                        placeholder="name@example.com">
                     <label for="floatingInput">From Date</label>
+                    <div *ngIf="(this.reserveForm.get('frmdate')?.errors)&&(this.reserveForm.get('frmdate')?.touched)">
+                        <p>Date not Valid</p>
+                    </div>
                 </div>
                 <div class="form-floating mb-3 col-lg-5 ">
-                    <input type="date" class="form-control " id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">From Date</label>
+                    <input formControlName="toDate" type="date" class="form-control " id="floatingInput"
+                        placeholder="name@example.com">
+                    <label for="floatingInput">To Date</label>
+                    <div *ngIf="(this.reserveForm.get('toDate')?.errors)&&(this.reserveForm.get('toDate')?.touched)">
+                        <p>Date not Valid</p>
+                    </div>
                 </div>
             </div>
             <div class="form-floating  mt-3 mx-auto" style="width: 84%;">
-                <input type="number" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="number" formControlName="nDays" class="form-control" id="floatingPassword"
+                    placeholder="Password">
                 <label for="floatingPassword">Number Of days</label>
+                <div *ngIf="(this.reserveForm.get('nDays')?.errors)&&(this.reserveForm.get('nDays')?.touched)">
+                    <p>Number of days Invalid</p>
+                </div>
             </div>
             <div class="form-floating  mt-3 mx-auto" style="width: 84%;">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" formControlName="lNum" class="form-control" id="floatingPassword"
+                    placeholder="Password">
                 <label for="floatingPassword">licence Number</label>
+                <div *ngIf="(this.reserveForm.get('lNum')?.errors)&&(this.reserveForm.get('lNum')?.touched)">
+                    <p>Date not Valid</p>
+                </div>
             </div>
             <div class="text-end me-5">
-                <button class="btn btn-primary mt-5  " >Reserve</button>
+                <button class="btn btn-primary mt-5  ">Reserve</button>
             </div>
 
         </form>
     </div>
     <div class="col-lg-6 col-md-12  mt-2">
-        <img class="w-100 mt-5" src="https://i.postimg.cc/jjJPgB0T/pngwing-com.png" alt="">
+        <h4 class="ms-5 mt-5">{{details.carnme}}</h4>
+        <h6 class="ms-5">details</h6>
+        <img class="w-100 mt-5" src="{{details.carimge}}" alt="">
     </div>
 
 </div>

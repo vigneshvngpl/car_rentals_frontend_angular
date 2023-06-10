@@ -9,75 +9,126 @@ import { DataService } from '../Service/data.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  user: any
+  carrid: any
+  usenme: any
+  cardetails: any
+  seperateDetails: any
+  carname: any
+  carmodel: any
+  carfuel: any
+  cartransmission: any
+  carcondition: any
+  carcapacity: any
+  carmileage: any
+  carprice: any
+  carimage: any
 
-  usenme:any
 
 
 
-  
-
-  constructor(private router:Router,private fb:FormBuilder,private db:DataService){}
+  constructor(private router: Router, private fb: FormBuilder, private db: DataService) { }
 
   ngOnInit(): void {
-    
-    this.usenme=localStorage.getItem("currentUser")
+
+    this.usenme = localStorage.getItem("currentUser")
+
+    this.viewall()
+
+
 
   }
 
 
-  loginForm=this.fb.group({
+  loginForm = this.fb.group({
 
-    email:["",[Validators.required,Validators.email]],
-    psw:["",[Validators.required,Validators.pattern("[0-9a-zA-Z]+")]]
+    email: ["", [Validators.required, Validators.email]],
+    psw: ["", [Validators.required, Validators.pattern("[0-9a-zA-Z]+")]]
 
   })
 
-  registeruser(){
+  registeruser() {
     this.router.navigateByUrl("register")
   }
 
   //login
 
-  login(){
-    if(this.loginForm.valid){
+  login() {
+    if (this.loginForm.valid) {
 
       this.db.loginApi(
         this.loginForm.value.email,
         this.loginForm.value.psw
-      ).subscribe((result:any)=>{
+      ).subscribe((result: any) => {
 
         alert("login successful")
-        this.usenme=localStorage.getItem("currentUser")
-        console.log(this.usenme);
-        
-        
+        this.usenme = localStorage.getItem("currentUser")
 
-        localStorage.setItem("currentUser",result.currentUser)
-         this.router.navigateByUrl('login')
-        
-        
+
+
+
+        localStorage.setItem("currentUser", result.currentUser)
+        this.router.navigateByUrl('login')
+
+
       },
-      result=>{
-        alert(result.error.message)
-      })
+        result => {
+          alert(result.error.message)
+        })
 
 
     }
-    else{
+    else {
       alert("form invalid")
     }
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem("currentUser")
     this.router.navigateByUrl('')
   }
 
-  reservepge(){
-    this.router.navigateByUrl("reserve")
+  reservepge() {
+    this.user = localStorage.getItem("currentUser")
+    if (this.user) {
+      this.router.navigateByUrl("reserve")
+
+    }
+    else {
+      alert("please Login")
+    }
+
   }
 
-  
+  //view all cars
+
+  viewall() {
+    this.db.viewallApi().subscribe((result: any) => {
+
+
+      this.cardetails = result.message
+      // console.log(this.cardetails);
+
+    })
+  }
+  view(id: any) {
+
+    this.seperateDetails = this.cardetails.filter((item: any) => item.carid == id)
+    console.log(this.seperateDetails);
+
+    this.carname = this.seperateDetails[0].carnme
+    this.carmodel = this.seperateDetails[0].model
+    this.cartransmission = this.seperateDetails[0].transmission
+    this.carcondition = this.seperateDetails[0].condition
+    this.carcapacity = this.seperateDetails[0].capacity
+    this.carmileage = this.seperateDetails[0].mileage
+    this.carprice = this.seperateDetails[0].price
+    this.carimage = this.seperateDetails[0].carimge
+    this.carfuel = this.seperateDetails[0].fuel
+    this.carrid = this.seperateDetails[0].carid
+
+  }
+
 
 }
 

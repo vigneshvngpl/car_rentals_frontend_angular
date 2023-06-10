@@ -13,32 +13,44 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
 
 
 
 
-  registerApi (email:any,nme:any,phone:any,psw:any){
-    const body={
+  registerApi(email: any, nme: any, phone: any, psw: any) {
+    const body = {
       email,
       nme,
       phone,
       psw
     }
 
-    return this.http.post("http://localhost:3000/register",body)
+    return this.http.post("http://localhost:3000/register", body)
   }
 
   //login api
 
-  loginApi(email:any,psw:any){
-    const body={
+  loginApi(email: any, psw: any) {
+    const body = {
       email,
       psw
     }
-    return this.http.post("http://localhost:3000/login",body)
+    return this.http.post("http://localhost:3000/login", body)
 
+  }
+
+  //view all cars
+
+  viewallApi() {
+    return this.http.get("http://localhost:3000/viewall")
+  }
+
+  //reserveapi
+
+  reserveApi(id:any){
+    return this.http.get("http://localhost:3000/reserve/"+id)
   }
 }

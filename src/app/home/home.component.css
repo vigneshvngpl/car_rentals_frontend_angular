@@ -198,3 +198,20 @@ input:focus{
 .wrapper .input-data input:valid ~ .underline:before{
   transform: scaleX(1);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Carlito&family=Kanit&family=Manrope&family=Tilt+Warp&display=swap');
+
+th,td{
+  font-family: 'Carlito', sans-serif;
+}
+
+.reservebtn a{
+  text-decoration: none;
+  color: white;
+}
+
+.reservebtn a:hover{
+  color: black;
+}
+
+
