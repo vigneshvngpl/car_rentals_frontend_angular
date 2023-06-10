@@ -52,23 +52,23 @@
                 </div>
             </div>
             <div class="form-floating  mt-3 mx-auto" style="width: 84%;">
-                <input type="password" formControlName="lNum" class="form-control" id="floatingPassword"
-                    placeholder="Password">
+                <input type="text" formControlName="lNum" class="form-control" id="floatingPassword"
+                   placeholder="Password" >
                 <label for="floatingPassword">licence Number</label>
                 <div *ngIf="(this.reserveForm.get('lNum')?.errors)&&(this.reserveForm.get('lNum')?.touched)">
                     <p>Date not Valid</p>
                 </div>
             </div>
             <div class="text-end me-5">
-                <button class="btn btn-primary mt-5  ">Reserve</button>
+                <button class="btn btn-primary mt-5" >Reserve</button>
             </div>
 
         </form>
     </div>
     <div class="col-lg-6 col-md-12  mt-2">
-        <h4 class="ms-5 mt-5">{{details.carnme}}</h4>
+        <h4 class="ms-5 mt-5">{{carname}}</h4>
         <h6 class="ms-5">details</h6>
-        <img class="w-100 mt-5" src="{{details.carimge}}" alt="">
+        <img class="w-100 mt-5" src={{carimage}} alt="">
     </div>
 
 </div>

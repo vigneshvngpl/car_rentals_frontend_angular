@@ -53,4 +53,8 @@ export class DataService {
   reserveApi(id:any){
     return this.http.get("http://localhost:3000/reserve/"+id)
   }
+
+  transactionApi(id:any){
+    return this.http.get("http://localhost:3000/transaction/"+id)
+  }
 }
