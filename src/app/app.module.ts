@@ -9,7 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from'@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ReserveComponent } from './reserve/reserve.component';
-import { TransactionsComponent } from './transactions/transactions.component'
+import { TransactionsComponent } from './transactions/transactions.component';
+import { CheckoutComponent } from './checkout/checkout.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TransactionsComponent } from './transactions/transactions.component'
     LoginComponent,
     ReserveComponent,
     TransactionsComponent,
+    CheckoutComponent,
     
   ],
   imports: [

@@ -68,6 +68,7 @@ export class HomeComponent {
 
 
         localStorage.setItem("currentUser", result.currentUser)
+        localStorage.setItem("currentemail",result.currentemail)
         this.router.navigateByUrl('login')
 
 

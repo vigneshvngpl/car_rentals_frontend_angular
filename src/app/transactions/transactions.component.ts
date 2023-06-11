@@ -21,6 +21,10 @@ export class TransactionsComponent implements OnInit {
   capacity:any
   condition:any
   carname:any
+  email:any
+  dates:any
+  fromdate:any
+  todate:any
 
   constructor(private ar:ActivatedRoute,private ds:DataService){}
 
@@ -44,7 +48,7 @@ ngOnInit(): void {
       this.mileage=this.details.mileage
       this.capacity=this.details.capacity
       this.condition=this.details.condition
-      this.carname=this.details.carname
+      this.carname=this.details.carnme
 
       
 
@@ -55,7 +59,29 @@ ngOnInit(): void {
 }
 
 
+checkout(){
 
+  this.email=localStorage.getItem("currentemail")
+  this.dates=localStorage.getItem("dates")
+  this.fromdate=localStorage.getItem("fromdate")
+  this.todate=localStorage.getItem("todate")
+  // console.log(this.dates);
+  // console.log(this.fromdate);
+  // console.log(this.todate);
+  
+  
+  
+  
+
+  
+  this.ds.checkOutApi(this.id,this.dates,this.email,this.fromdate,this.todate,this.totalprice,this.carname,this.carimage).subscribe((result:any)=>{
+    alert(result.message)
+  })
+  // console.log(this.email);
+  // this.ds.checkOutApi()
+  
+
+}
 
 
 

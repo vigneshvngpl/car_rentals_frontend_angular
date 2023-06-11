@@ -17,8 +17,8 @@ export class ReserveComponent {
   temp: any = ''
   temp1: any = ''
   difference: any
-  carimage:any
-  carname:any
+  carimage: any
+  carname: any
 
 
   constructor(private router: Router, private ds: DataService, private ar: ActivatedRoute, private fb: FormBuilder) { }
@@ -28,18 +28,18 @@ export class ReserveComponent {
     this.ar.params.subscribe((result: any) => {
       this.id = result.id
       console.log(this.id);
-      })
+    })
 
-      this.ds.reserveApi(this.id).subscribe((data: any) => {
-        this.details = data.message
-        console.log(this.details);
-        this.carimage=this.details.carimge
-        this.carname=this.details.carnme
+    this.ds.reserveApi(this.id).subscribe((data: any) => {
+      this.details = data.message
+      console.log(this.details);
+      this.carimage = this.details.carimge
+      this.carname = this.details.carnme
 
 
 
-      })
-    
+    })
+
 
   }
 
@@ -64,6 +64,8 @@ export class ReserveComponent {
         //to get dates in between
         this.getDatesBetween(`${this.reserveForm.value.frmdate}`, `${this.reserveForm.value.toDate}`)
         this.calculateDiff()
+        localStorage.setItem("fromdate", `${this.reserveForm.value.frmdate}`)
+        localStorage.setItem("todate", `${this.reserveForm.value.toDate}`)
         this.router.navigateByUrl(`transactions/${this.id}`)
       }
 
@@ -101,7 +103,7 @@ export class ReserveComponent {
     var diff = timeDiff / (1000 * 3600 * 24);
     this.difference = Math.floor(diff) + 1;
     console.log(this.difference);
-    localStorage.setItem("days",this.difference)
+    localStorage.setItem("days", this.difference)
 
 
   }
