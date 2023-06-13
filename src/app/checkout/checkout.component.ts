@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../Service/data.service';
 
 @Component({
   selector: 'app-checkout',
@@ -8,14 +9,11 @@ import { Component } from '@angular/core';
 export class CheckoutComponent {
   dates:any
 
-  constructor(){}
+  constructor(private ds:DataService){}
 
-  checkout(){
-
-    this.dates=localStorage.getItem("dates")
-    console.log(this.dates);
+ 
     
 
-  }
+  
 
 }

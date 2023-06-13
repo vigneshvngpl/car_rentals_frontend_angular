@@ -10,7 +10,11 @@ import { HttpClientModule } from'@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ReserveComponent } from './reserve/reserve.component';
 import { TransactionsComponent } from './transactions/transactions.component';
-import { CheckoutComponent } from './checkout/checkout.component'
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderpageComponent } from './orderpage/orderpage.component';
+import { AdminpageComponent } from './adminpage/adminpage.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { VehicleaddComponent } from './vehicleadd/vehicleadd.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { CheckoutComponent } from './checkout/checkout.component'
     ReserveComponent,
     TransactionsComponent,
     CheckoutComponent,
+    OrderpageComponent,
+    AdminpageComponent,
+    AdminloginComponent,
+    VehicleaddComponent,
     
   ],
   imports: [

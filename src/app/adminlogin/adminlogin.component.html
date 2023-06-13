@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-white">
+    <div class="container-fluid px-5">
+        <a class="navbar-brand" href=""><img src="https://i.postimg.cc/d0kZpWGn/logo-transparent-png-1.png" alt=""
+                style=" height: 70px;"></a>
+        <button class="navbar-toggler bg-black " type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon "></span></button>
+        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 navi ">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Vehicle Model</a></li>
+                <li class="nav-item"><a class="nav-link" href="pricing.html">Testmonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">Our Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">contact</a></li>
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="w-50 mx-auto " style="border: 1px solid black;">
+    <h4 class="text-center mt-4">Admin Login</h4>
+    <form action="" class="mt-5 w-75 mx-auto text-center" [formGroup]="adminloginForm" (ngSubmit)="adminlogin()" >
+        <div class="form-floating mb-3 mx-auto">
+            <input formControlName="user" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+            <div *ngIf="(this.adminloginForm.get('user')?.errors)&&(this.adminloginForm.get('user')?.touched)">Email not valid</div>
+          </div>
+          <div class="form-floating mb-5">
+            <input formControlName="psw" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+            <div *ngIf="(this.adminloginForm.get('psw')?.errors)&&(this.adminloginForm.get('psw')?.touched)" >please Enter a valid Password</div>
+          </div>
+          <button class="btn btn-success mt-3 mb-3 "  >Login</button>
+    </form>
+</div>
+           
+  
+      

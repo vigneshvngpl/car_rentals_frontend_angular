@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-white">
+    <div class="container-fluid px-5">
+        <a class="navbar-brand" href=""><img src="https://i.postimg.cc/d0kZpWGn/logo-transparent-png-1.png" alt=""
+                style=" height: 70px;"></a>
+        <button class="navbar-toggler bg-black " type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon "></span></button>
+        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 navi ">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Vehicle Model</a></li>
+                <li class="nav-item"><a class="nav-link" href="pricing.html">Testmonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">Our Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <h3 class="text-center">Your orders</h3>
+    <div class=" mx-auto  d-flex justify-content-around align-items-center mt-3 " style="width: 83%; border-bottom: 1px solid black;" *ngFor="let i of orderhistory">
+       <div class= "d-flex align-items-center"  style="width: 20%;" > <img class="w-100" src={{i.carimg}} alt=""></div>
+       <div style="width: 13%;" class="text-center">
+        
+        <h6>{{i.carnme}}</h6>
+        <div class="row">
+        
+            <div class="col-lg-6 col-md-6 text-center mt-3" style="border-right: 1px solid black;" ><p >{{i.transmission}}</p></div>
+            <div class="col-lg-6 col-md-6 text-center mt-3" ><p>{{i.fuel}}</p></div>
+            
+        </div>
+        
+       
+        
+       </div>
+      
+       <div>
+        <p class="text-muted">From Date</p>
+        <p>{{i.fromdte}}</p>
+       </div>
+       <div>
+        <p class="text-muted">To date</p>
+        <p>{{i.todte}}</p>
+       </div>
+       <div>
+        
+        <h6><i class="fa-solid fa-indian-rupee-sign"></i> .{{i.tprice}}</h6>
+       </div>
+
+        
+
+    </div>
+</div>

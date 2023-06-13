@@ -1,0 +1,16 @@
+input{
+    border: none;
+    border-radius: 0;
+
+    
+}
+input:active{
+    border-bottom: 1px solid black;
+    box-shadow: none;
+    outline: none;
+}
+input:focus{
+    box-shadow: none;
+    outline: none;
+    border-bottom: 1px solid black;
+}

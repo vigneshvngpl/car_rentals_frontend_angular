@@ -19,6 +19,7 @@ export class ReserveComponent {
   difference: any
   carimage: any
   carname: any
+  dates1:any
 
 
   constructor(private router: Router, private ds: DataService, private ar: ActivatedRoute, private fb: FormBuilder) { }
@@ -66,7 +67,15 @@ export class ReserveComponent {
         this.calculateDiff()
         localStorage.setItem("fromdate", `${this.reserveForm.value.frmdate}`)
         localStorage.setItem("todate", `${this.reserveForm.value.toDate}`)
-        this.router.navigateByUrl(`transactions/${this.id}`)
+       
+
+        //api calling
+        this.ds.transactionApi(this.id,this.dates1).subscribe((result:any)=>{
+          alert(result.message)
+          this.router.navigateByUrl(`transactions/${this.id}`)
+        },result=>{
+          alert(result.error.message)
+        })
       }
 
     }
@@ -89,6 +98,7 @@ export class ReserveComponent {
     }
     console.log(dates);
     localStorage.setItem("dates", `${dates}`)
+    this.dates1=dates
 
     return dates;
   }
@@ -106,6 +116,14 @@ export class ReserveComponent {
     localStorage.setItem("days", this.difference)
 
 
+  }
+
+  checkavailable(){
+    this.ds.transactionApi(this.id,this.dates1).subscribe((result:any)=>{
+      alert(result.message)
+    },result=>{
+      alert(result.error.message)
+    })
   }
 
 

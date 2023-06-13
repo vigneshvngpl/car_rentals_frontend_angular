@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-white">
+    <div class="container-fluid px-5">
+        <a class="navbar-brand" href=""><img src="https://i.postimg.cc/d0kZpWGn/logo-transparent-png-1.png" alt=""
+                style=" height: 70px;"></a>
+        <button class="navbar-toggler bg-black " type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon "></span></button>
+        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 navi ">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Vehicle Model</a></li>
+                <li class="nav-item"><a class="nav-link" href="pricing.html">Testmonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">Our Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">contact</a></li>
+                <button class="btn btn-success" (click)="vehicleaddpage()">add New vehicle</button>
+                
+               
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h4 class="text-center">car List</h4>
+
+<section class="mt-5 d-flex row mx-auto  " style="width: 95%;">
+   
+    <div *ngFor="let i of collection" class="col-lg-3 col-md-4 col-sm-12 mt-3 text-center  "  >
+        <div class="card" style="width: 100%;">
+            <img src={{i.carimge}} class="card-img-top" alt="..." style="height: 250px;">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{i.carnme}}</h5>
+              <h6 class="text-center text-muted">Rs.{{i.price}}/day</h6>
+              
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item text-center">{{i.transmission}}</li>
+                <li class="list-group-item text-center">{{i.fuel}}</li>
+                <li class="list-group-item text-center"><span>mileage: </span>{{i.mileage}}</li>
+                <li class="list-group-item text-center"><span>condition: </span>{{i.condition}}</li>
+                <li class="list-group-item text-center"><span>capacity: </span>{{i.capacity}}</li>
+               
+              </ul>
+        
+         
+            </div>
+          </div>
+          <button class="btn btn-danger">Delete</button>
+    </div>
+
+</section>

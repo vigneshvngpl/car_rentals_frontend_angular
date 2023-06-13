@@ -1,0 +1,86 @@
+<div class="row w-75 mx-auto mt-5">
+    <form action="" class="row mt-5" style="border: 1px solid black;" [formGroup]="vehicleaddform" (ngSubmit)="addvehicle()">
+        <H4 class="text-center mt-4">Add Vehicles</H4>
+        <div class="col-lg-6 col-md-6 col-sm-12 mt-5">
+            <div class="form-floating mb-3">
+                <input formControlName="carid" type="type" class="form-control" id="floatingInput"
+                    placeholder="name@example.com">
+                <label for="floatingInput">Car ID</label>
+                <div *ngIf="(this.vehicleaddform.get('carid')?.errors)&&(this.vehicleaddform.get('carid')?.touched)">
+                    <p>Enter Valid Carid</p>
+                </div>
+            </div>
+            <div class="form-floating">
+                <input formControlName="carnme" type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Car Name</label>
+                <div *ngIf="(this.vehicleaddform.get('carnme')?.errors)&&(this.vehicleaddform.get('carnme')?.touched)">
+                    <p>Enter Valid CarName</p>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <input formControlName="Modelyear" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Model Year</label>
+                <div *ngIf="(this.vehicleaddform.get('Modelyear')?.errors)&&(this.vehicleaddform.get('Modelyear')?.touched)">
+                    <p>Enter Valid Model Year</p>
+                </div>
+            </div>
+            <div class="form-floating">
+                <input formControlName="price" type="Number" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Price Per Day</label>
+                <div *ngIf="(this.vehicleaddform.get('price')?.errors)&&(this.vehicleaddform.get('price')?.touched)">
+                    <p>Enter valid Price</p>
+                </div>
+            </div>
+            <div  class="form-floating mb-3">
+                <input formControlName="carimge" type="Text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Car Image in URL</label>
+                <div *ngIf="(this.vehicleaddform.get('carimge')?.errors)&&(this.vehicleaddform.get('carimge')?.touched)">
+                    <p>Enter Valid image url</p>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mt-5">
+            <div class="form-floating">
+                <input formControlName="fuel" type="Text" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Fuel</label>
+                <div *ngIf="(this.vehicleaddform.get('fuel')?.errors)&&(this.vehicleaddform.get('fuel')?.touched)">
+                    <p>Enter Valid fuel type</p>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <input formControlName="transmission" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Transmission</label>
+                <div *ngIf="(this.vehicleaddform.get('transmission')?.errors)&&(this.vehicleaddform.get('transmission')?.touched)">
+                    <p>Enter Valid transmission details</p>
+                </div>
+            </div>
+            <div class="form-floating">
+                <input formControlName="capacity" type="Number" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Capacity</label>
+                <div *ngIf="(this.vehicleaddform.get('capacity')?.errors)&&(this.vehicleaddform.get('capacity')?.touched)">
+                    <p>Enter Valid capacity in numbers</p>
+                </div>
+            </div>
+            <div class="form-floating">
+                <input formControlName="mileage" type="number" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Mileage</label>
+                <div *ngIf="(this.vehicleaddform.get('mileage')?.errors)&&(this.vehicleaddform.get('mileage')?.touched)">
+                    <p>Mileage invalid</p>
+                </div>
+            </div>
+            <div class="form-floating">
+                <input formControlName="condition" type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">COndition</label>
+                <div *ngIf="(this.vehicleaddform.get('condition')?.errors)&&(this.vehicleaddform.get('condition')?.touched)">
+                    <p>Enter valid input</p>
+                </div>
+            </div>
+        </div>
+        <div class="mx-auto text-center mb-4">
+            <button class="btn btn-success w-25 me-4">Submit</button>
+            
+        </div>
+    </form>
+</div>

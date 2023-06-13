@@ -74,7 +74,7 @@ checkout(){
   
 
   
-  this.ds.checkOutApi(this.id,this.dates,this.email,this.fromdate,this.todate,this.totalprice,this.carname,this.carimage).subscribe((result:any)=>{
+  this.ds.checkOutApi(this.id,this.dates,this.email,this.fromdate,this.todate,this.totalprice,this.carname,this.carimage,this.transmission,this.fuel,this.capacity,this.condition).subscribe((result:any)=>{
     alert(result.message)
   })
   // console.log(this.email);

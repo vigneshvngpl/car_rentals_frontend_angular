@@ -50,15 +50,22 @@ export class DataService {
 
   //reserveapi
 
-  reserveApi(id:any){
-    return this.http.get("http://localhost:3000/reserve/"+id)
+  reserveApi(id: any) {
+    return this.http.get("http://localhost:3000/reserve/" + id)
   }
 
-  transactionApi(id:any){
-    return this.http.get("http://localhost:3000/transaction/"+id)
+  orderhistory(id:any){
+    return this.http.get("http://localhost:3000/orderhistory/"+id)
   }
-  checkOutApi(id:any,dates:any,email:any,fromdate:any,todate:any,totalprice:any,carname:any,carimage:any){
-    const body={
+
+  transactionApi(id: any, date: []) {
+    const body = {
+      id, date
+    }
+    return this.http.post("http://localhost:3000/transactions", body)
+  }
+  checkOutApi(id: any, dates: any, email: any, fromdate: any, todate: any, totalprice: any, carname: any, carimage: any,transmission:any,fuel:any,capacity:any,condition:any) {
+    const body = {
       id,
       dates,
       email,
@@ -66,9 +73,42 @@ export class DataService {
       todate,
       totalprice,
       carname,
-      carimage
-      
+      carimage,
+      transmission,
+      fuel,
+      capacity,
+      condition
+
     }
-    return this.http.post("http://localhost:3000/checkout",body)
+    return this.http.post("http://localhost:3000/checkout", body)
   }
+
+  //admin login api
+
+  adminloginApi(user: any, psw: any) {
+    const body = {
+      user,
+      psw
+    }
+    return this.http.post("http://localhost:3000/adminlogin", body)
+
+  }
+
+  //vehicle addition api
+
+  
+  vehicleadd(carid: any, carnme: any, model: any, price: any,carimge: any,fuel:any,transmission:any,capacity:any,mileage:any,condition:any) {
+    const body = {
+     carid,carnme,model,price,carimge,fuel,transmission,capacity,mileage,condition
+    }
+
+    return this.http.post("http://localhost:3000/addvehicle", body)
+  }
+
+
+
+
+ 
+
+
 }
