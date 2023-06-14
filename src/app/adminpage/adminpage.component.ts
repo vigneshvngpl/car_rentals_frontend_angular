@@ -17,7 +17,7 @@ export class AdminpageComponent implements OnInit {
 
     this.ds.viewallApi().subscribe((result: any) => {
       this.collection = result.message
-      console.log(this.collection);
+      
       
     }, result => {
       alert(result.error.message)
@@ -27,6 +27,24 @@ export class AdminpageComponent implements OnInit {
 
   vehicleaddpage(){
     this.router.navigateByUrl("vehicleadd")
+  }
+
+  vehicleedit(id:any){
+    this.router.navigateByUrl(`vehicleedit/${id}`)
+  }
+
+
+  
+  vehicledelete(id:any){
+
+    this.ds.vehicledelete(id).subscribe((result:any)=>{
+
+        alert(result.message)
+        this.router.navigateByUrl("adminhome")
+
+    },result=>{
+      alert(result.error.message)
+    })
   }
 
 }

@@ -105,6 +105,22 @@ export class DataService {
     return this.http.post("http://localhost:3000/addvehicle", body)
   }
 
+  vehicleedit(carid: any, carnme: any, model: any, price: any,carimge: any,fuel:any,transmission:any,capacity:any,mileage:any,condition:any) {
+    const body = {
+     carid,carnme,model,price,carimge,fuel,transmission,capacity,mileage,condition
+    }
+
+    return this.http.post("http://localhost:3000/editvehicle", body)
+  }
+
+
+  //vehicle delete
+
+  vehicledelete(carid:any){
+    return this.http.delete("http://localhost:3000/vehicledelete/"+carid)
+  }
+
+
 
 
 

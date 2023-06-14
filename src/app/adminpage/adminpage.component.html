@@ -31,8 +31,12 @@
         <div class="card" style="width: 100%;">
             <img src={{i.carimge}} class="card-img-top" alt="..." style="height: 250px;">
             <div class="card-body">
+                <div class="d-flex justify-content-center">
               <h5 class="card-title text-center">{{i.carnme}}</h5>
-              <h6 class="text-center text-muted">Rs.{{i.price}}/day</h6>
+              <button id="edit" (click)="vehicleedit(i.carid)" class="btn" role="button" ><i class="fa-solid fa-pen-to-square"></i></button>
+             
+            </div>
+            <h6 class="text-center text-muted">Rs.{{i.price}}/day</h6>
               
             <ul class="list-group list-group-flush ">
                 <li class="list-group-item text-center">{{i.transmission}}</li>
@@ -46,7 +50,15 @@
          
             </div>
           </div>
-          <button class="btn btn-danger">Delete</button>
+          <button (click)="vehicledelete(i.carid)" class="noselect mx-auto" id="delete" ><span class="text">Delete all</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+
+
+
+
+
+          
+          
+
     </div>
 
 </section>

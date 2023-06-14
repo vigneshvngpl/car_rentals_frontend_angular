@@ -10,6 +10,7 @@ import { OrderpageComponent } from './orderpage/orderpage.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { VehicleaddComponent } from './vehicleadd/vehicleadd.component';
+import { AdmincareditComponent } from './admincaredit/admincaredit.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:"orders",component:OrderpageComponent},
   {path:"adminhome",component:AdminpageComponent},
   {path:"adminlogin",component:AdminloginComponent},
-  {path:"vehicleadd",component:VehicleaddComponent}
+  {path:"vehicleadd",component:VehicleaddComponent},
+  {path:"vehicleedit/:id",component:AdmincareditComponent}
 
 ];
 

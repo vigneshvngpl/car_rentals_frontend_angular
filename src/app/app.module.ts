@@ -14,7 +14,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderpageComponent } from './orderpage/orderpage.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
-import { VehicleaddComponent } from './vehicleadd/vehicleadd.component'
+import { VehicleaddComponent } from './vehicleadd/vehicleadd.component';
+import { AdmincareditComponent } from './admincaredit/admincaredit.component'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { VehicleaddComponent } from './vehicleadd/vehicleadd.component'
     AdminpageComponent,
     AdminloginComponent,
     VehicleaddComponent,
+    AdmincareditComponent,
     
   ],
   imports: [
