@@ -18,38 +18,87 @@
     </div>
 </nav>
 
-<div class="row">
-    <h3 class="text-center">Your orders</h3>
-    <div class=" mx-auto  d-flex justify-content-around align-items-center mt-3 " style="width: 83%; border-bottom: 1px solid black;" *ngFor="let i of orderhistory">
-       <div class= "d-flex align-items-center"  style="width: 20%;" > <img class="w-100" src={{i.carimg}} alt=""></div>
-       <div style="width: 13%;" class="text-center">
-        
-        <h6>{{i.carnme}}</h6>
-        <div class="row">
-        
-            <div class="col-lg-6 col-md-6 text-center mt-3" style="border-right: 1px solid black;" ><p >{{i.transmission}}</p></div>
-            <div class="col-lg-6 col-md-6 text-center mt-3" ><p>{{i.fuel}}</p></div>
-            
+<h1 class="text-center">Your orders</h1>
+
+
+<section class="d-flex w-100" style="flex-wrap: wrap;"  *ngFor="let i of orderhistory">
+
+    <div class="w-50" style="border-bottom: black 1px solid;">
+        <div class=" w-100" style=" display: flex; align-items: center; justify-content: space-evenly;justify-items: center; border-right: 1px solid black;">
+            <img class="" src={{i.carimg}} alt="" style="max-width: 50%;">
+
+            <div class="my-auto">
+                <h6>{{i.carnme}}</h6>
+                <div class="">
+                    <div class="" >
+                        <p>{{i.transmission}}</p>
+                    </div>
+                    <div class="">
+                        <p>{{i.fuel}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-       
-        
-       </div>
-      
-       <div>
-        <p class="text-muted">From Date</p>
-        <p>{{i.fromdte}}</p>
-       </div>
-       <div>
-        <p class="text-muted">To date</p>
-        <p>{{i.todte}}</p>
-       </div>
-       <div>
-        
-        <h6><i class="fa-solid fa-indian-rupee-sign"></i> .{{i.tprice}}</h6>
-       </div>
-
-        
-
     </div>
-</div>
+            <div class="mx-auto d-flex mt-3 w-50" style="text-align: center; border-bottom: black 1px solid; justify-content: space-evenly; flex-wrap: wrap; align-items: center; justify-items: center;">
+                <div class="">
+                    <p class="text-muted">From Date</p>
+                    <p>{{i.fromdte}}</p>
+                </div>
+                <div class="">
+                    <p class="text-muted">To date</p>
+                    <p>{{i.todte}}</p>
+                </div>
+                <div class="">
+    
+                    <h6><i class="fa-solid fa-indian-rupee-sign"></i> .{{i.tprice}}</h6>
+                </div>
+            </div>
+</section>
+
+
+<!-- <div class="" style="display: flex; flex-wrap: wrap;"> -->
+    <!-- <h3 class="text-center">Your orders</h3> -->
+    <!-- <div class="sec1">
+        <div class=" mx-auto justify-content-around align-items-center mt-3 "
+            style="width: 83%; border-bottom: 1px solid black;" *ngFor="let i of orderhistory">
+            <div class="d-flex align-items-center" style="width: 20%;"> <img class="w-100" src={{i.carimg}} alt="">
+            </div>
+            <div style="width: 13%;" class="text-center">
+
+                <h6>{{i.carnme}}</h6>
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-6 text-center mt-3" style="border-right: 1px solid black;">
+                        <p>{{i.transmission}}</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 text-center mt-3">
+                        <p>{{i.fuel}}</p>
+                    </div>
+
+                </div> -->
+
+            <!-- </div>
+
+            <div class="sec2">
+
+            </div>
+
+            <div>
+                <p class="text-muted">From Date</p>
+                <p>{{i.fromdte}}</p>
+            </div>
+            <div>
+                <p class="text-muted">To date</p>
+                <p>{{i.todte}}</p>
+            </div>
+            <div>
+
+                <h6><i class="fa-solid fa-indian-rupee-sign"></i> .{{i.tprice}}</h6>
+            </div>
+
+        </div> -->
+<!-- 
+
+    </div> -->
+<!-- </div> -->

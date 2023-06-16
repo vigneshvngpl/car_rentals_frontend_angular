@@ -25,9 +25,18 @@
 
 <h4 class="text-center">car List</h4>
 
+<form class="d-flex w-25 mx-auto" role="search" 
+
+>
+    <input class="form-control me-2" (keyup)="searchdata($event)" [(ngModel)]="filter" name="filte" id="filt" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+
+
 <section class="mt-5 d-flex row mx-auto  " style="width: 95%;">
+
    
-    <div *ngFor="let i of collection" class="col-lg-3 col-md-4 col-sm-12 mt-3 text-center  "  >
+    <div *ngFor="let i of collection | search:filter:'carnme' " class="col-lg-3 col-md-4 col-sm-12 mt-3 text-center  "  >
         <div class="card" style="width: 100%;">
             <img src={{i.carimge}} class="card-img-top" alt="..." style="height: 250px;">
             <div class="card-body">

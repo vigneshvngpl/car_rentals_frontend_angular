@@ -34,6 +34,10 @@ export class HomeComponent {
     this.usenme = localStorage.getItem("currentUser")
 
     this.viewall()
+    
+
+    
+    
 
 
 
@@ -62,13 +66,13 @@ export class HomeComponent {
       ).subscribe((result: any) => {
 
         alert("login successful")
-        this.usenme = localStorage.getItem("currentUser")
+        // this.usenme = localStorage.getItem("currentUser")
 
 
 
 
         localStorage.setItem("currentUser", result.currentUser)
-        localStorage.setItem("currentemail",result.currentemail)
+        localStorage.setItem("currentemail", result.currentemail)
         this.router.navigateByUrl('login')
 
 
@@ -86,13 +90,13 @@ export class HomeComponent {
 
   logout() {
     localStorage.removeItem("currentUser")
-    this.router.navigateByUrl('')
+    this.router.navigateByUrl('login')
   }
 
   reservepge() {
     this.user = localStorage.getItem("currentUser")
     if (this.user) {
-      this.router.navigateByUrl("reserve")
+      this.router.navigateByUrl(`reserve/${this.carrid}`)
 
     }
     else {
@@ -109,6 +113,7 @@ export class HomeComponent {
 
       this.cardetails = result.message
       // console.log(this.cardetails);
+      
 
     })
   }
@@ -128,6 +133,14 @@ export class HomeComponent {
     this.carfuel = this.seperateDetails[0].fuel
     this.carrid = this.seperateDetails[0].carid
 
+  }
+
+  orders() {
+    this.router.navigateByUrl("orders")
+  }
+
+  adminlogin(){
+    this.router.navigateByUrl("adminlogin")
   }
 
 

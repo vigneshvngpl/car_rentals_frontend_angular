@@ -27,7 +27,7 @@
         <form action="" class="mt-5 mx-auto " [formGroup]="reserveForm" (ngSubmit)="  toreserve()">
             <div class="row mx-auto " style="display: flex; justify-content: space-evenly;">
                 <div class="form-floating mb-3  col-lg-5">
-                    <input type="date" formControlName="frmdate" class="form-control " id="floatingInput"
+                    <input type="date" formControlName="frmdate" [min]="todayDate" class="form-control " id="floatingInput"
                         placeholder="name@example.com">
                     <label for="floatingInput">From Date</label>
                     <div *ngIf="(this.reserveForm.get('frmdate')?.errors)&&(this.reserveForm.get('frmdate')?.touched)">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="form-floating mb-3 col-lg-5 ">
-                    <input formControlName="toDate" type="date" class="form-control " id="floatingInput"
+                    <input formControlName="toDate" type="date" [min]="todayDate" class="form-control " id="floatingInput"
                         placeholder="name@example.com">
                     <label for="floatingInput">To Date</label>
                     <div *ngIf="(this.reserveForm.get('toDate')?.errors)&&(this.reserveForm.get('toDate')?.touched)">

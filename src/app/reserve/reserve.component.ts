@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 import { DataService } from '../Service/data.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import * as moment from 'moment';
+import { DatePipe } from '@angular/common';
+
 
 
 @Component({
@@ -22,18 +24,18 @@ export class ReserveComponent {
   dates1:any
 
 
-  constructor(private router: Router, private ds: DataService, private ar: ActivatedRoute, private fb: FormBuilder) { }
+  constructor(private router: Router, private ds: DataService, private ar: ActivatedRoute, private fb: FormBuilder,private dp:DatePipe) { }
 
   ngOnInit(): void {
 
     this.ar.params.subscribe((result: any) => {
       this.id = result.id
-      console.log(this.id);
+      
     })
 
     this.ds.reserveApi(this.id).subscribe((data: any) => {
       this.details = data.message
-      console.log(this.details);
+     
       this.carimage = this.details.carimge
       this.carname = this.details.carnme
 
@@ -126,6 +128,10 @@ export class ReserveComponent {
     })
   }
 
+  //to disable previous dates
+
+  todayDate=this.dp.transform(new Date(), 'yyyy-MM-dd');
+  
 
 
 

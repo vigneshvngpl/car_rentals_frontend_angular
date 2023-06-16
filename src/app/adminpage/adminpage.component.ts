@@ -9,6 +9,8 @@ import { Route, Router } from '@angular/router';
 })
 export class AdminpageComponent implements OnInit {
   collection: any
+  filter:any
+  
 
   constructor(private ds: DataService, private router: Router) { }
 
@@ -17,12 +19,22 @@ export class AdminpageComponent implements OnInit {
 
     this.ds.viewallApi().subscribe((result: any) => {
       this.collection = result.message
+      this.filter=""
       
       
     }, result => {
       alert(result.error.message)
     })
 
+    this.searchdata(event)
+
+  }
+
+
+  searchdata(event:any){
+    this.filter=event.target.value
+    console.log(this.filter);
+    
   }
 
   vehicleaddpage(){

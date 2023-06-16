@@ -15,7 +15,9 @@ import { OrderpageComponent } from './orderpage/orderpage.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { VehicleaddComponent } from './vehicleadd/vehicleadd.component';
-import { AdmincareditComponent } from './admincaredit/admincaredit.component'
+import { AdmincareditComponent } from './admincaredit/admincaredit.component';
+import { SearchPipe } from './search.pipe'
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { AdmincareditComponent } from './admincaredit/admincaredit.component'
     AdminloginComponent,
     VehicleaddComponent,
     AdmincareditComponent,
+    SearchPipe,
     
   ],
   imports: [
@@ -40,7 +43,7 @@ import { AdmincareditComponent } from './admincaredit/admincaredit.component'
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
