@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./vehicleadd.component.css']
 })
 export class VehicleaddComponent {
+  errormsg:any
+  forinvalid:any=false
 
   constructor(private ds:DataService,private fb:FormBuilder,private router:Router){}
 
@@ -29,6 +31,7 @@ export class VehicleaddComponent {
   })
 
   addvehicle(){
+    if(this.vehicleaddform.valid){
     this.ds.vehicleadd(this.vehicleaddform.value.carid,this.vehicleaddform.value.carnme,
       this.vehicleaddform.value.Modelyear,
       this.vehicleaddform.value.price,
@@ -38,13 +41,26 @@ export class VehicleaddComponent {
       this.vehicleaddform.value.capacity,
       this.vehicleaddform.value.mileage,
       this.vehicleaddform.value.condition).subscribe((result:any)=>{
-        alert(result.message)
+        // alert(result.message)
         
         this.router.navigateByUrl("adminhome")
         
       },result=>{
         alert(result.error.message)
+
+        this.errormsg=result.error.message
       })
+    }
+    else{
+      // alert("form not valid")
+      this.forinvalid=true
+    }
+  }
+
+  close(){
+    
+    this.router.navigateByUrl("adminhome")
+
   }
 
 

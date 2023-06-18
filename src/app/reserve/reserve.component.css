@@ -53,7 +53,7 @@ p{
     left:0;
     width:100%;
     height:100%;
-    background:#e31e56;
+    background:red;
     transition:0.5s;
     transform-origin:right;
     transform:scaleX(0);
@@ -69,10 +69,46 @@ p{
   input:focus{
     outline: none;
     box-shadow: none;
-    border-bottom: 2px solid rgb(93, 121, 235);
+    border-bottom: 2px solid red;
   }
   input{
     border: none;
     border-bottom: 1px solid black;
     border-radius: 0;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+  button {
+    --c:  #be261e; /* the color*/
+    font-family: 'Lilita One', cursive;
+    
+    box-shadow: 0 0 0 .1em inset var(--c); 
+    --_g: linear-gradient(var(--c) 0 0) no-repeat;
+    background: 
+      var(--_g) calc(var(--_p,0%) - 100%) 0%,
+      var(--_g) calc(200% - var(--_p,0%)) 0%,
+      var(--_g) calc(var(--_p,0%) - 100%) 100%,
+      var(--_g) calc(200% - var(--_p,0%)) 100%;
+    background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+    outline-offset: .1em;
+    transition: background-size .4s, background-position 0s .4s;
+  }
+  button:hover {
+    --_p: 100%;
+    transition: background-position .4s, background-size 0s;
+  }
+
+  
+  
+  
+  
+  button {
+    font-family: system-ui, sans-serif;
+    /* font-size: 3.5rem; */
+    cursor: pointer;
+    padding: .1em .6em;
+    font-weight: bold;  
+    border: none;
+    height: 40PX;
+    width: 90PX;
   }

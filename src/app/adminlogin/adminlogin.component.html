@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-white">
     <div class="container-fluid px-5">
-        <a class="navbar-brand" href=""><img src="https://i.postimg.cc/d0kZpWGn/logo-transparent-png-1.png" alt=""
-                style=" height: 70px;"></a>
+        <a class="navbar-brand" href=""><img src="https://i.postimg.cc/nh9Qp7xX/Black-And-White-Aesthetic-Minimalist-Modern-Simple-Typography-Coconut-Cosmetics-Logo-3.png" alt=""
+            style=" height: 90px;"></a>
         <button class="navbar-toggler bg-black " type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation"><span class="navbar-toggler-icon "></span></button>
@@ -35,6 +35,8 @@
             <label for="floatingPassword">Password</label>
             <div *ngIf="(this.adminloginForm.get('psw')?.errors)&&(this.adminloginForm.get('psw')?.touched)" >please Enter a valid Password</div>
           </div>
+          <p *ngIf="forminvalid" style="color: red;">Form Error</p>
+          <p *ngIf="adminerror" style="color: red;">{{adminerror}}</p>
           <button class="btn btn-success mt-3 mb-3 "  >Login</button>
     </form>
 </div>

@@ -21,27 +21,33 @@ export class ReserveComponent {
   difference: any
   carimage: any
   carname: any
-  dates1:any
+  dates1: any
+  carprice:any
+  frmtodate:any=false
+  forminvalid:any=false
 
 
-  constructor(private router: Router, private ds: DataService, private ar: ActivatedRoute, private fb: FormBuilder,private dp:DatePipe) { }
+  constructor(private router: Router, private ds: DataService, private ar: ActivatedRoute, private fb: FormBuilder, private dp: DatePipe) { }
 
   ngOnInit(): void {
 
     this.ar.params.subscribe((result: any) => {
       this.id = result.id
-      
+
     })
 
     this.ds.reserveApi(this.id).subscribe((data: any) => {
       this.details = data.message
-     
+
       this.carimage = this.details.carimge
       this.carname = this.details.carnme
+      this.carprice=this.details.price
 
 
 
     })
+
+    
 
 
   }
@@ -53,7 +59,7 @@ export class ReserveComponent {
   reserveForm = this.fb.group({
     frmdate: ["", [Validators.required]],
     toDate: ["", [Validators.required]],
-    nDays: ["", [Validators.required, Validators.pattern("[0-9]+")]],
+    // nDays: ["", [Validators.required, Validators.pattern("[0-9]+")]],
     lNum: ["", [Validators.required, Validators.pattern("[A-Za-z0-9]+")]]
 
   })
@@ -61,7 +67,8 @@ export class ReserveComponent {
   toreserve() {
     if (this.reserveForm.valid) {
       if (this.reserveForm.value.frmdate == this.reserveForm.value.toDate) {
-        alert("from and to dates are same")
+        // alert("from and to dates are same")
+        this.frmtodate=true
       }
       else {
         //to get dates in between
@@ -69,22 +76,24 @@ export class ReserveComponent {
         this.calculateDiff()
         localStorage.setItem("fromdate", `${this.reserveForm.value.frmdate}`)
         localStorage.setItem("todate", `${this.reserveForm.value.toDate}`)
-       
+
 
         //api calling
-        this.ds.transactionApi(this.id,this.dates1).subscribe((result:any)=>{
+        this.ds.transactionApi(this.id, this.dates1).subscribe((result: any) => {
           alert(result.message)
           this.router.navigateByUrl(`transactions/${this.id}`)
-        },result=>{
+        }, result => {
           alert(result.error.message)
         })
       }
 
     }
     else {
-      alert("form not valid")
+      // alert("form not valid")
+      this.forminvalid=true
     }
   }
+
 
   //To get dates between 
 
@@ -98,12 +107,17 @@ export class ReserveComponent {
       dates.push(current.format('YYYY-MM-DD'));
       current.add(1, 'days');
     }
+    
     console.log(dates);
     localStorage.setItem("dates", `${dates}`)
-    this.dates1=dates
+    this.dates1 = dates
 
     return dates;
+
   }
+
+
+
   //number of days calculation
 
   calculateDiff() {
@@ -120,18 +134,18 @@ export class ReserveComponent {
 
   }
 
-  checkavailable(){
-    this.ds.transactionApi(this.id,this.dates1).subscribe((result:any)=>{
+  checkavailable() {
+    this.ds.transactionApi(this.id, this.dates1).subscribe((result: any) => {
       alert(result.message)
-    },result=>{
+    }, result => {
       alert(result.error.message)
     })
   }
 
   //to disable previous dates
 
-  todayDate=this.dp.transform(new Date(), 'yyyy-MM-dd');
-  
+  todayDate = this.dp.transform(new Date(), 'yyyy-MM-dd');
+
 
 
 

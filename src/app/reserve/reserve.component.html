@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-white">
     <div class="container-fluid px-5">
-        <a class="navbar-brand" href=""><img src="https://i.postimg.cc/d0kZpWGn/logo-transparent-png-1.png" alt=""
-                style=" height: 70px;"></a>
+        <a class="navbar-brand" href=""><img src="https://i.postimg.cc/nh9Qp7xX/Black-And-White-Aesthetic-Minimalist-Modern-Simple-Typography-Coconut-Cosmetics-Logo-3.png" alt=""
+            style=" height: 90px;"></a>
         <button class="navbar-toggler bg-black " type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation"><span class="navbar-toggler-icon "></span></button>
@@ -20,54 +20,77 @@
 
 <div class="row 
   mx-auto" style="width: 85%;">
+  <h4 class="text-center mt-5 mb-4">Booking Details</h4>
 
     <div class="col-lg-6 col-md-12   ">
 
-        <h1 class="text-center mt-5">Booking</h1>
+       
+
+        <div class="row mt-5">
+            <div class="col-lg-6 col-md-5  text-center " >
+                <h6>Car Name</h6>
+                <p>{{carname }}</p>
+                <hr>
+                <h6></h6>
+            </div>
+            <div class="col-lg-6 col-md-5  text-center">
+                <h6>Price Per Day</h6>
+                <p>Rs.{{carprice}}</p><hr>
+                
+                <h6></h6>
+            </div>
+
+        </div>
+
         <form action="" class="mt-5 mx-auto " [formGroup]="reserveForm" (ngSubmit)="  toreserve()">
             <div class="row mx-auto " style="display: flex; justify-content: space-evenly;">
                 <div class="form-floating mb-3  col-lg-5">
-                    <input type="date" formControlName="frmdate" [min]="todayDate" class="form-control " id="floatingInput"
-                        placeholder="name@example.com">
+                    <input type="date" formControlName="frmdate" [min]="todayDate" class="form-control "
+                        id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">From Date</label>
                     <div *ngIf="(this.reserveForm.get('frmdate')?.errors)&&(this.reserveForm.get('frmdate')?.touched)">
-                        <p>Date not Valid</p>
+                        <p style="color: red;">Date not Valid</p>
                     </div>
                 </div>
                 <div class="form-floating mb-3 col-lg-5 ">
-                    <input formControlName="toDate" type="date" [min]="todayDate" class="form-control " id="floatingInput"
-                        placeholder="name@example.com">
+                    <input formControlName="toDate" type="date" [min]="todayDate" class="form-control "
+                        id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">To Date</label>
                     <div *ngIf="(this.reserveForm.get('toDate')?.errors)&&(this.reserveForm.get('toDate')?.touched)">
-                        <p>Date not Valid</p>
+                        <p style="color: red;">Date not Valid</p>
                     </div>
+                    
                 </div>
+                <p *ngIf="frmtodate" style="color: red;">From And To dates are Same</p>
             </div>
-            <div class="form-floating  mt-3 mx-auto" style="width: 84%;">
+            <!-- <div class="form-floating  mt-3 mx-auto" style="width: 84%;">
                 <input type="number" formControlName="nDays" class="form-control" id="floatingPassword"
                     placeholder="Password">
                 <label for="floatingPassword">Number Of days</label>
                 <div *ngIf="(this.reserveForm.get('nDays')?.errors)&&(this.reserveForm.get('nDays')?.touched)">
                     <p>Number of days Invalid</p>
                 </div>
-            </div>
+            </div> -->
             <div class="form-floating  mt-3 mx-auto" style="width: 84%;">
                 <input type="text" formControlName="lNum" class="form-control" id="floatingPassword"
-                   placeholder="Password" >
+                    placeholder="Password">
                 <label for="floatingPassword">licence Number</label>
                 <div *ngIf="(this.reserveForm.get('lNum')?.errors)&&(this.reserveForm.get('lNum')?.touched)">
-                    <p>Date not Valid</p>
+                    <p style="color: red;">Licence not valid</p>
                 </div>
             </div>
+            <p *ngIf="forminvalid" class="text-center mt-4" style="color: red;">Form Invalid</p>
             <div class="text-end me-5">
-                <button class="btn btn-primary mt-5" (click)="checkavailable()" >Reserve</button>
+                <button class="btn  mt-5" (click)="checkavailable()">RESERVE</button>
             </div>
+
+
 
         </form>
     </div>
     <div class="col-lg-6 col-md-12  mt-2">
-        <h4 class="ms-5 mt-5">{{carname}}</h4>
-        <h6 class="ms-5">details</h6>
+        <p class="ms-5 mt-5 text-muted text-center">Your product image will be displayed here</p>
+        <h6 class="ms-5"></h6>
         <img class="w-100 mt-5" src={{carimage}} alt="">
     </div>
 

@@ -49,21 +49,21 @@
                     <p>Enter Valid fuel type</p>
                 </div>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating mt-3 ">
                 <input formControlName="transmission" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Transmission</label>
                 <div *ngIf="(this.vehicleaddform.get('transmission')?.errors)&&(this.vehicleaddform.get('transmission')?.touched)">
                     <p>Enter Valid transmission details</p>
                 </div>
             </div>
-            <div class="form-floating">
+            <div class="form-floating ">
                 <input formControlName="capacity" type="Number" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Capacity</label>
                 <div *ngIf="(this.vehicleaddform.get('capacity')?.errors)&&(this.vehicleaddform.get('capacity')?.touched)">
                     <p>Enter Valid capacity in numbers</p>
                 </div>
             </div>
-            <div class="form-floating">
+            <div class="form-floating mt-3">
                 <input formControlName="mileage" type="number" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Mileage</label>
                 <div *ngIf="(this.vehicleaddform.get('mileage')?.errors)&&(this.vehicleaddform.get('mileage')?.touched)">
@@ -72,14 +72,19 @@
             </div>
             <div class="form-floating">
                 <input formControlName="condition" type="text" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">COndition</label>
+                <label for="floatingPassword">Condition</label>
                 <div *ngIf="(this.vehicleaddform.get('condition')?.errors)&&(this.vehicleaddform.get('condition')?.touched)">
                     <p>Enter valid input</p>
                 </div>
             </div>
         </div>
+        <p style="color: red;" *ngIf="forinvalid" class="text-center"> Form Invalid</p>
+        <p style="color: red;" *ngIf="errormsg">{{errormsg}}</p>
         <div class="mx-auto text-center mb-4">
             <button class="btn btn-success w-25 me-4">Submit</button>
+
+            <button class="btn btn-dark w-25 me-4" (click)="close()">Home</button>
+
             
         </div>
     </form>

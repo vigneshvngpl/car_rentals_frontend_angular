@@ -23,6 +23,9 @@ export class HomeComponent {
   carmileage: any
   carprice: any
   carimage: any
+  pp:any = "1"
+  reserveerror:any=false
+  loginerror:any
 
 
 
@@ -34,12 +37,23 @@ export class HomeComponent {
     this.usenme = localStorage.getItem("currentUser")
 
     this.viewall()
-    
 
     
-    
-
-
+  
+      // this.seperateDetails = this.cardetails.filter((item: any) => item.carid == 1)
+      // console.log(this.seperateDetails);
+  
+      // this.carname = this.seperateDetails[0].carnme
+      // this.carmodel = this.seperateDetails[0].model
+      // this.cartransmission = this.seperateDetails[0].transmission
+      // this.carcondition = this.seperateDetails[0].condition
+      // this.carcapacity = this.seperateDetails[0].capacity
+      // this.carmileage = this.seperateDetails[0].mileage
+      // this.carprice = this.seperateDetails[0].price
+      // this.carimage = this.seperateDetails[0].carimge
+      // this.carfuel = this.seperateDetails[0].fuel
+      // this.carrid = this.seperateDetails[0].carid
+  
 
   }
 
@@ -65,7 +79,7 @@ export class HomeComponent {
         this.loginForm.value.psw
       ).subscribe((result: any) => {
 
-        alert("login successful")
+        // alert("login successful")
         // this.usenme = localStorage.getItem("currentUser")
 
 
@@ -79,6 +93,7 @@ export class HomeComponent {
       },
         result => {
           alert(result.error.message)
+          this.loginerror=result.error.message
         })
 
 
@@ -100,7 +115,8 @@ export class HomeComponent {
 
     }
     else {
-      alert("please Login")
+      // alert("please Login")
+      this.reserveerror=true
     }
 
   }
@@ -117,7 +133,7 @@ export class HomeComponent {
 
     })
   }
-  view(id: any) {
+  view(id:any ) {
 
     this.seperateDetails = this.cardetails.filter((item: any) => item.carid == id)
     console.log(this.seperateDetails);

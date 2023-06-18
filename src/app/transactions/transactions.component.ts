@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../Service/data.service';
 
 @Component({
@@ -26,7 +26,7 @@ export class TransactionsComponent implements OnInit {
   fromdate:any
   todate:any
 
-  constructor(private ar:ActivatedRoute,private ds:DataService){}
+  constructor(private ar:ActivatedRoute,private ds:DataService,private router:Router){}
 
 ngOnInit(): void {
 
@@ -76,6 +76,9 @@ checkout(){
   
   this.ds.checkOutApi(this.id,this.dates,this.email,this.fromdate,this.todate,this.totalprice,this.carname,this.carimage,this.transmission,this.fuel,this.capacity,this.condition).subscribe((result:any)=>{
     alert(result.message)
+    console.log(this.dates);
+    this.router.navigateByUrl("")
+    
   })
   // console.log(this.email);
   // this.ds.checkOutApi()

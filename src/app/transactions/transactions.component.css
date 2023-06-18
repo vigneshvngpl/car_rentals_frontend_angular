@@ -175,7 +175,7 @@ img {
     font-size: 14px;
 }
 
-.btn.btn-primary {
+.btnn.btnn-pprimary {
     width: 100%;
     height: 55px;
     border-radius: 0;
@@ -185,7 +185,7 @@ img {
     font-weight: 600;
 }
 
-.btn.btn-primary:hover .fas {
+.btnn.btnn-pprimary:hover .fas {
     transform: translateX(10px);
     transition: transform 0.5s ease
 }
@@ -212,4 +212,18 @@ img {
 h5,
 .text-muted {
     font-family: 'Poppins', sans-serif;
+}
+
+.bd:active{
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+}
+
+.bd:focus{
+    border: none;
+    outline: none;
+    box-shadow: none;
+
 }

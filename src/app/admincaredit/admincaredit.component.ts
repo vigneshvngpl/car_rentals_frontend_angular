@@ -21,6 +21,7 @@ export class AdmincareditComponent implements OnInit {
   capacity: any
   mileage: any
   condition: any
+  update:any=false
   constructor(private fb: FormBuilder, private router: Router, private ds: DataService, private ar: ActivatedRoute) { }
 
 
@@ -28,6 +29,7 @@ export class AdmincareditComponent implements OnInit {
 
     this.ar.params.subscribe((result: any) => {
       this.id = result.id
+
 
 
     })
@@ -67,8 +69,9 @@ export class AdmincareditComponent implements OnInit {
       this.transmission, this.capacity, this.mileage, 
       this.condition).subscribe((result:any)=>{
 
-        alert(result.message)
-        this.router.navigateByUrl("adminhome")
+        // alert(result.message)
+        // this.router.navigateByUrl("adminhome")
+        this.update=true
 
     },result=>{
       alert(result.error.message)

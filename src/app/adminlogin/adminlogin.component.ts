@@ -10,6 +10,9 @@ import { Route, Router } from '@angular/router';
 })
 export class AdminloginComponent {
 
+  adminerror:any
+  forminvalid:any=false
+
   constructor(private fb:FormBuilder,private ds:DataService,private router:Router){}
 
 
@@ -27,16 +30,18 @@ export class AdminloginComponent {
     if(this.adminloginForm.valid){
 
       this.ds.adminloginApi(this.adminloginForm.value.user,this.adminloginForm.value.psw).subscribe((result:any)=>{
-        alert(result.message)
+        // alert(result.message)
         this.router.navigateByUrl("adminhome")
 
       },result=>{
-        alert(result.error.message)
+        // alert(result.error.message)
+        this.adminerror=result.error.message
       })
 
     }
     else{
-      alert("form invalid")
+      // alert("form invalid")
+      this.forminvalid=true
     }
   }
 

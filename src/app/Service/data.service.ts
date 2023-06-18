@@ -64,6 +64,8 @@ export class DataService {
     }
     return this.http.post("http://localhost:3000/transactions", body)
   }
+
+
   checkOutApi(id: any, dates: any, email: any, fromdate: any, todate: any, totalprice: any, carname: any, carimage: any,transmission:any,fuel:any,capacity:any,condition:any) {
     const body = {
       id,
@@ -78,8 +80,8 @@ export class DataService {
       fuel,
       capacity,
       condition
-
     }
+    
     return this.http.post("http://localhost:3000/checkout", body)
   }
 

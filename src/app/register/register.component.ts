@@ -11,6 +11,7 @@ import { DataService } from '../Service/data.service';
 export class RegisterComponent {
 
   pswCheck: any = false
+  registererror:any
 
   constructor(private fb: FormBuilder, private router: Router,private ds:DataService) { }
 
@@ -37,7 +38,9 @@ export class RegisterComponent {
           alert(result.message)
           this.router.navigateByUrl("")
         },  result=>{
-          alert(result.error.message)
+          // alert(result.error.message)
+          this.registererror=result.error.message
+
         })
         
 
